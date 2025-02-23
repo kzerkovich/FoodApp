@@ -38,6 +38,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
 import com.kzerk.foodapp.Activity.Splash.BaseActivity
+import com.kzerk.foodapp.Domain.CategoryModel
 import com.kzerk.foodapp.Domain.SliderModel
 import com.kzerk.foodapp.R
 import com.kzerk.foodapp.ViewModel.MainViewModel
@@ -57,14 +58,24 @@ class MainActivity : BaseActivity() {
 fun DashboardScreen() {
 	val viewModel = MainViewModel()
 	val banners = remember { mutableStateListOf<SliderModel>() }
+	val categories = remember { mutableStateListOf<CategoryModel>() }
 
 	var showBannerLoading by remember { mutableStateOf(true) }
+	var showCategoryLoading by remember { mutableStateOf(true) }
 
 	LaunchedEffect(Unit) {
 		viewModel.loadBanner().observeForever {
 			banners.clear()
 			banners.addAll(it)
 			showBannerLoading = false
+		}
+	}
+
+	LaunchedEffect(Unit) {
+		viewModel.loadCategory().observeForever {
+			categories.clear()
+			categories.addAll(it)
+			showCategoryLoading = false
 		}
 	}
 
@@ -126,6 +137,34 @@ fun DashboardScreen() {
 					}
 				} else {
 					Banners(banners)
+				}
+			}
+
+			item {
+				Text(
+					"Categories",
+					color = Color.Black,
+					fontSize = 18.sp,
+					fontWeight = FontWeight.Bold,
+					modifier = Modifier
+						.fillParentMaxWidth()
+						.padding(top = 24.dp)
+						.padding(horizontal = 16.dp)
+				)
+			}
+
+			item {
+				if (showCategoryLoading) {
+					Box(
+						modifier = Modifier
+							.fillMaxSize()
+							.height(50.dp),
+						contentAlignment = Alignment.Center
+					) {
+						CircularProgressIndicator()
+					}
+				} else {
+					CategoryList(categories)
 				}
 			}
 		}
