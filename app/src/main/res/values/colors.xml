@@ -11,5 +11,6 @@
     <color name="midBrown">#864912</color>
     <color name="brown">#cc9c68</color>
     <color name="green">#00532d</color>
-    <color name="lightGre">#efefef</color>
+    <color name="lightGrey">#efefef</color>
+    <color name="grey">#919191</color>
 </resources>
