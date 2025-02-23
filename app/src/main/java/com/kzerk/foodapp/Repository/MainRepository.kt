@@ -8,6 +8,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.kzerk.foodapp.Domain.CategoryModel
+import com.kzerk.foodapp.Domain.ItemModel
 import com.kzerk.foodapp.Domain.SliderModel
 
 class MainRepository {
@@ -46,6 +47,29 @@ class MainRepository {
 				val lists = mutableListOf<CategoryModel>()
 				for (childSnapshot in snapshot.children) {
 					val item = childSnapshot.getValue(CategoryModel::class.java)
+					item?.let {
+						lists.add(it)
+					}
+					listData.value = lists
+				}
+			}
+
+			override fun onCancelled(error: DatabaseError) {
+				TODO("Not yet implemented")
+			}
+		})
+		return listData
+	}
+
+	fun loadBestSeller(): LiveData<MutableList<ItemModel>> {
+		val listData = MutableLiveData<MutableList<ItemModel>>()
+		val ref = firebaseDatabase.getReference("Items")
+
+		ref.addValueEventListener(object : ValueEventListener {
+			override fun onDataChange(snapshot: DataSnapshot) {
+				val lists = mutableListOf<ItemModel>()
+				for (childSnapshot in snapshot.children) {
+					val item = childSnapshot.getValue(ItemModel::class.java)
 					item?.let {
 						lists.add(it)
 					}
