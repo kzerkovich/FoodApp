@@ -1,4 +1,4 @@
-package com.kzerk.foodapp.Activity.Splash
+package com.kzerk.foodapp.Activity
 
 import android.os.Bundle
 import android.view.WindowManager

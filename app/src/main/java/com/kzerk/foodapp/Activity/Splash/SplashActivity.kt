@@ -1,4 +1,4 @@
-package com.kzerk.foodapp.Activity
+package com.kzerk.foodapp.Activity.Splash
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -28,7 +28,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.kzerk.foodapp.Activity.Splash.BaseActivity
+import com.kzerk.foodapp.Activity.BaseActivity
 import com.kzerk.foodapp.Activity.Dashboard.MainActivity
 import com.kzerk.foodapp.R
 
@@ -69,7 +69,7 @@ fun SplashScreen(onCLick: () -> Unit = {}) {
 		)
 
 		Text(
-			text = "Наша выпечка решает Ваши проблемы",
+			text = "Our Baking Solves Your Problems",
 			color = colorResource(R.color.darkBrown),
 			textAlign = TextAlign.Center,
 			fontSize = 26.sp,
@@ -90,13 +90,13 @@ fun SplashScreen(onCLick: () -> Unit = {}) {
 				.height(50.dp)
 		) {
 			Text(
-				text = "Вход/Регистрация",
+				text = "Let's Get Started",
 				fontSize = 18.sp,
 				color = Color.White
 			)
 		}
 		Text(
-			text = "Уже есть аккаунт? Войти",
+			text = "Already have an account? Sign In",
 			color = colorResource(R.color.darkBrown),
 			textAlign = TextAlign.Center,
 			fontSize = 18.sp,

@@ -1,5 +1,6 @@
 package com.kzerk.foodapp.Activity.Dashboard
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
@@ -33,7 +34,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
-import com.kzerk.foodapp.Activity.Splash.BaseActivity
+import com.kzerk.foodapp.Activity.BaseActivity
+import com.kzerk.foodapp.Activity.Cart.CartActivity
 import com.kzerk.foodapp.Domain.CategoryModel
 import com.kzerk.foodapp.Domain.ItemsModel
 import com.kzerk.foodapp.Domain.SliderModel
@@ -45,7 +47,7 @@ class MainActivity : BaseActivity() {
 		super.onCreate(savedInstanceState)
 		setContent {
 			DashboardScreen {
-
+				startActivity(Intent(this, CartActivity::class.java))
 			}
 		}
 	}
@@ -111,9 +113,9 @@ fun DashboardScreen(onCartClick:() -> Unit) {
 					verticalAlignment = Alignment.CenterVertically
 				) {
 					Column {
-						Text("С возвращением", color = Color.Black)
+						Text("Welcome Back", color = Color.Black)
 						Text(
-							"Егор", color = Color.Black,
+							"Egor", color = Color.Black,
 							fontSize = 18.sp,
 							fontWeight = FontWeight.Bold
 						)

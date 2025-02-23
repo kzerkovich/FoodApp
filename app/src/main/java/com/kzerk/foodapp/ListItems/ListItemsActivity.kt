@@ -27,7 +27,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
 import com.kzerk.foodapp.Activity.Dashboard.ListItemsFullSizeVertical
-import com.kzerk.foodapp.Activity.Splash.BaseActivity
+import com.kzerk.foodapp.Activity.BaseActivity
 import com.kzerk.foodapp.R
 import com.kzerk.foodapp.ViewModel.MainViewModel
 

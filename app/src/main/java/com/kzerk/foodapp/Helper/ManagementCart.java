@@ -8,11 +8,11 @@ import com.kzerk.foodapp.Domain.ItemsModel;
 
 import java.util.ArrayList;
 
-public class ManagmentCart {
+public class ManagementCart {
     private TinyDB tinyDB;
     private Context context;
 
-    public ManagmentCart(Context context) {
+    public ManagementCart(Context context) {
         tinyDB = new TinyDB(context);
         this.context = context;
     }

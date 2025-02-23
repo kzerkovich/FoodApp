@@ -1,5 +1,6 @@
 package com.kzerk.foodapp.Activity.Detail
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
@@ -26,24 +27,24 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
 import coil.compose.rememberAsyncImagePainter
-import com.kzerk.foodapp.Activity.Splash.BaseActivity
+import com.kzerk.foodapp.Activity.BaseActivity
+import com.kzerk.foodapp.Activity.Cart.CartActivity
 import com.kzerk.foodapp.Domain.ItemsModel
-import com.kzerk.foodapp.Helper.ManagmentCart
+import com.kzerk.foodapp.Helper.ManagementCart
 import com.kzerk.foodapp.R
 
 class DetailActivity : BaseActivity() {
 	private lateinit var item: ItemsModel
-	private lateinit var managementCart: ManagmentCart
+	private lateinit var managementCart: ManagementCart
 
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
 		item = intent.getSerializableExtra("object") as ItemsModel
-		managementCart = ManagmentCart(this)
+		managementCart = ManagementCart(this)
 
 		setContent {
 			DetailScreen(
@@ -54,6 +55,7 @@ class DetailActivity : BaseActivity() {
 					managementCart.insertItems(item)
 				},
 				onCartClick = {
+					startActivity(Intent(this, CartActivity::class.java))
 				}
 			)
 		}
