@@ -1,4 +1,4 @@
-package com.kzerk.foodapp
+package com.kzerk.foodapp.Activity.Dashboard
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
