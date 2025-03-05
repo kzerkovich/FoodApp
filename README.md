@@ -13,7 +13,4 @@
 - **Базы данных**: Firebase
 
 ## **Демонстрация работы**
-
-Ниже приведен GIF-файл, демонстрирующий работу проекта:
-
 ![Демонстрация работы проекта](https://github.com/kzerkovich/CommUNItyJava/blob/main/FoodApp.gif)
